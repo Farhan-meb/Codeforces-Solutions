@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int main()
+{
+    ll a,b,c,d;
+    cin>>a>>b>>c>>d;
+
+    ll mx = max(a,max(b,max(c,d)));
+
+    if(mx==a)
+    {
+        cout<<mx-b<<" "<<mx-c<<" "<<mx-d<<endl;
+    }
+    else if(mx==b)
+    {
+        cout<<mx-a<<" "<<mx-c<<" "<<mx-d<<endl;
+    }
+    else if(mx==c)
+    {
+        cout<<mx-b<<" "<<mx-a<<" "<<mx-d<<endl;
+    }
+    else{
+        cout<<mx-a<<" "<<mx-b<<" "<<mx-c<<endl;
+    }
+}
