@@ -1,0 +1,18 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+
+
+int main()
+{
+    int t;
+    cin>>t;
+
+    while(t--)
+    {
+        ll n;cin>>n;ll sum=1;bool f=0;for(int i=2; i<=1000000000; i*=2){sum+=i;if(sum==n)break;if(n%sum==0){f=1;cout<<n/sum<<endl;break;}}if(!f)cout<<1<<endl;}
+
+
+}

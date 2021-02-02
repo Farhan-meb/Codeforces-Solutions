@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<math.h>
+
+#define MAX 1000000009
+
+int main()
+{
+	int i,n,m,k,min=MAX,temp;
+	scanf("%d %d %d",&n,&m,&k);
+	int t[n+10];
+	for(i=1;i<=n;i++)
+	{
+		scanf("%d",&t[i]);
+		if(t[i]>0 && t[i]<=k)
+		{
+			temp=abs(m-i);
+			if(temp<min)
+				min=temp;
+		}
+	}
+	printf("%d\n",(min*10));
+	return 0;
+}

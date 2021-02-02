@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+#define co(a) cout<<a<<" "<<endl;
+#define coo(a) cout<<a<<endl;
+
+
+int main()
+{
+    ll x,y,z;
+
+    cin>>x>>y>>z;
+
+    cout<<(x+y)/z<<" ";
+
+    ll t1 = x%z,t2 = y%z;
+    //cout<<t1<<" "<<t2<<endl;
+
+    if(t1+t2<z)
+    {
+        cout<<0<<endl;
+        return 0;
+    }
+    cout<<z - (max(t1,t2))<<endl;
+}

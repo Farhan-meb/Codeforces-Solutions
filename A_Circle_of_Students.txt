@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define co(a) cout<<a<<endl;
+
+int main()
+{
+    int q;
+    cin>>q;
+
+    while(q--)
+    {
+        int n;
+        cin>>n;
+
+        vector<int>v;
+
+        for(int i=0; i<n; i++)
+        {
+            int x;
+            cin>>x;
+            v.push_back(x);
+        }
+        bool f=0;
+        for(int i=0; i<n-1; i++)
+        {
+            if((v[i]==1 and v[i+1]==n) or (v[i]==n and v[i+1]==1)) continue;
+            int dif = abs(v[i]-v[i+1]);
+            //cout<<"dif : "<<dif<<" : i : "<<i<<endl;
+            if(dif>1) {f=true;break;}
+        }
+        if(f) co("NO")
+        else co("YES")
+        }
+}
+

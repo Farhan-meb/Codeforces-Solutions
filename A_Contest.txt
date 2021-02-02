@@ -1,0 +1,21 @@
+#include <stdio.h>
+int main()
+{
+    int a, b, ta, tb, fa, fb;
+    scanf("%d %d %d %d", &a, &b, &ta, &tb);
+    fa =   a - (a/250 * ta);
+    fb = b - (b/250 *tb);
+
+    if((3*a)/10 > fa)
+        fa = (3*a)/10;
+    if((3*b)/10 > fb)
+        fb = (3*b)/10;
+
+    if(fa > fb)
+        printf("Misha");
+    else if(fa < fb)
+        printf("Vasya");
+    else printf("Tie");
+
+    return 0;
+}
