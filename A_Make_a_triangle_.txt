@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int main()
+{
+    //freopen("input.txt",r,stdin);
+    //freopen("output.txt",w,stdout)
+    int N[10];
+    cin>>N[0]>>N[1]>>N[2];
+
+    sort(N,N+3);
+
+    ll need = N[2];
+
+    if(N[0]+N[1]>need) cout<<0<<endl;
+    else
+    {
+        ll res = need - (N[0]+N[1]);
+        res++;
+        cout<<res<<endl;
+    }
+}
+
+

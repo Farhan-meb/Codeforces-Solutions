@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int main()
+{
+    int q;
+    cin>>q;
+
+    while(q--)
+    {
+        ll li,ri,di;
+        cin>>li>>ri>>di;
+        bool f=0;
+        for(int i=1;;i++)
+        {
+            ll x = di*i;
+
+            if(di<li or di>ri)
+            {
+                cout<<x<<endl;
+                f=1;
+                break;
+            }
+            else break;
+        }
+
+        ll t = ri/di;
+        t++;
+        if(!f) cout<<di*t<<endl;
+
+    }
+}

@@ -1,0 +1,20 @@
+#include <stdio.h>
+int c,v,vl,l,a;
+
+int main()
+{
+
+    scanf("%d%d%d%d%d",&c,&v,&vl,&a,&l);
+    int s=1;
+    int i;
+    for(i=v; i<c;)
+    {
+        v+=a;
+        if(v>vl) v=vl;
+        i-=l;
+        i+=v;
+        s++;
+    }
+    printf("%d\n",s);
+}
+

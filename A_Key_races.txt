@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main()
+
+{
+
+    int n,x,y,a,b;
+
+    scanf("%d%d%d%d%d",&n,&x,&y,&a,&b);
+
+    if(n*x+2*a<n*y+2*b) printf("First\n");
+    else if(n*x+2*a>n*y+2*b) printf("Second\n");
+    else printf("Friendship\n");
+}

@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int main()
+{
+
+    ll x,y,z;
+
+    cin>>x>>y>>z;
+
+       if(x>y && x>y+z)cout<<"+";
+
+       else if(y>x && y>x+z)cout<<"-";
+
+       else if(x==y  && x+z==y)cout<<"0";
+
+       else cout<<"?";
+
+       cout<<endl;
+}

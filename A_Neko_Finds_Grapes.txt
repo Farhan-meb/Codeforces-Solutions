@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+
+    int N[n+10],M[m+10];
+
+    int ev1=0,ev2=0,od1=0,od2=0;
+
+    for(int i=1;i<=n;i++)
+    {
+        ll x;
+        cin>>x;
+        if(x%2) od1++;
+        else ev1++;
+    }
+    for(int i=1;i<=m;i++)
+    {
+        ll x;
+        cin>>x;
+        if(x%2) od2++;
+        else ev2++;
+    }
+    ll ans1 = min(od1,ev2), ans2 = min(od2,ev1);
+    cout<<ans1+ans2<<endl;
+}

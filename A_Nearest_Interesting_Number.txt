@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int main()
+{
+    ll n;
+    cin>>n;
+
+    ll sum=0;
+
+    ll t = n;
+
+    while(true)
+    {
+        t = n;
+        sum=0;
+        while(t>0)
+        {
+            sum+=(t%10);
+            t/=10;
+        }
+       // cout<<n<<" "<<sum<<endl;
+        if(sum%4==0)
+        {
+            cout<<n<<endl;
+            return 0;
+        }
+        n++;
+    }
+}

@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+#define pe(a) cout<<a<<endl;
+#define ps(a) cout<<a<<" ";
+#define pb push_back
+
+int main()
+{
+    int n;
+    cin>>n;
+
+    if(n%2==1)
+    {
+        cout<<0<<endl;
+        return 0;
+    }
+
+    int ans = 2;
+
+    for(int i=4;i<=n;i+=2)
+    {
+        ans+=ans;
+    }
+
+    cout<<ans<<endl;
+
+}

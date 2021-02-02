@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int main()
+{
+    //printf("1");
+    int x,y,z;
+    cin>>x>>y>>z;
+
+    int a,b,c;
+    cin>>a>>b>>c;
+
+    bool f=0;
+
+    if(x>a) f=1;
+
+    if((a-x)+b<y) f=1;
+
+    if((a+b+c)-(x+y)<z) f=1;
+
+    if(f) cout<<"No\n";
+    else cout<<"Yes\n";
+}

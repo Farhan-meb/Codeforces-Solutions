@@ -1,0 +1,55 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+#define colls(a) printf("%lld ",a);
+#define colln(a) printf("%lld\n",a);
+#define cois(a) printf("%d ",a);
+#define coin(a) printf("%d\n",a);
+#define cods(a) printf("%.6f ",a);
+#define codn(a) printf("%.6f\n",a);
+#define cocs(a) printf("%c ",a);
+#define cocn(a) printf("%c\n",a);
+#define coss(a) printf("%s ",a);
+#define cosn(a) printf("%s\n",a);
+
+#define scll(a) scanf("%lld",&a);
+#define sci(a) scanf("%d",&a);
+#define scd(a) scanf("%lf",&a);
+#define scc(a) scanf("%c", &a);
+#define scs(a) scanf("%s",a);
+
+#define ischar(x)    (('a' <= x && x <= 'z') || ('A' <= x && x <= 'Z'))
+#define isvowel(ch)  ((ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')||(ch=='A'|| ch=='E' || ch=='I'|| ch=='O'|| ch=='U'))
+#define mem(a,b)     memset(a,b,sizeof(a));
+#define memvec(a,b)  for(int i=0;i<a.size();i++){a[i]=b;}
+
+#define pb push_back
+#define pp pop_back
+#define eb echecklace_back
+#define in  freopen("input.txt", "r", stdin)
+#define out  freopen("output.txt", "w", stdout)
+#define check(s,a) cout<<s<<" : "<<a<<endl;
+#define FastRead ios_base::sync_with_stdio(false);cin.tie(NULL);
+
+int main()
+{
+    FastRead
+    int t;
+    cin>>t;
+
+    while(t--)
+    {
+        ll a,b;cin>>a>>b;
+
+        ll res=0;bool got=0;while(a!=b){if(a==b) break;if(a>b){if(a%8==0 and a/8>=b){a/=8;res++;continue;}else if(a%4==0 and a/4>=b){a/=4;res++;continue;}else if(a%2==0 and a/2>=b){a/=2;res++;continue;}else{got=1;break;}}
+            else{if(a*8<=b){a*=8;res++;continue;}else if(a*4<=b){res++;a*=4;continue;}else if(a*2<=b){res++;a*=2;continue;}else{got=1;break;}}
+        }
+
+        if(got) cout<<-1<<endl;
+        else cout<<res<<endl;
+    }
+
+
+}

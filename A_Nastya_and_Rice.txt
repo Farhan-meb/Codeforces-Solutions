@@ -1,0 +1,8 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+#define check(s,a) cout<<s<<" : "<<a<<endl;
+
+int main(){int t;cin>>t;while(t--){ll n,a,b,c,d;cin>>n>>a>>b>>c>>d;ll li = a-b,lr = a+b,al = c-d,ar = c+d;bool f=0;ll x , id;for(int i=li; i<=lr; i++){x = al/lr;if(al%lr)x++;if(x<=n) {id = i;break;}}if(x>n){cout<<"NO\n";continue;}ll dd = ar - (x*id);ll dd1 = n-x;if(dd1*li<=dd){cout<<"YES\n";}else cout<<"NO\n";}}

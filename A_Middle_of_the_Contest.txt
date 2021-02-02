@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+
+
+int main()
+{
+    int a,b,c,d;
+    cin>>a;
+    char h;
+    cin>>h;
+    cin>>b;
+    cin>>c;
+    cin>>h;
+    cin>>d;
+    //cout<<a<<b<<c<<d;
+    ll hh = (a*60+b+c*60+d)/2;
+    int x = hh/60,y=hh%60;
+    if(x<10 and y<10)
+    {
+        cout<<0<<(hh/60)<<":"<<0<<hh%60<<endl;
+    }
+    else if(x<10 and y>=10)
+    {
+        cout<<0<<(hh/60)<<":"<<hh%60<<endl;
+    }
+    else if(x>=10 and y<10)
+    {
+        cout<<(hh/60)<<":"<<0<<hh%60<<endl;
+    }
+    else cout<<(hh/60)<<":"<<hh%60<<endl;
+
+}
+
+
+
