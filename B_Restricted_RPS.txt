@@ -1,0 +1,148 @@
+
+//------Farhaan Mahbub-------||
+
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int main()
+{
+    int t;
+    cin>>t;
+
+    while(t--)
+    {
+        ll n;
+        cin>>n;
+        ll r,p,s;
+        cin>>r>>p>>s;
+
+        map<char,ll>mp;
+        string ss;
+        for(int i=1; i<=n; i++)
+        {
+            char c;
+            cin>>c;
+            mp[c]++;
+            ss+=c;
+        }
+
+        ll res = 0;
+        ll exa = 0,exb=0,exc=0;
+        if(p>=mp['R'])
+        {
+            res+=mp['R'];
+            exa+=p-mp['R'];
+        }
+        else if(p<mp['R'])
+        {
+            res+=p;
+        }
+
+        if(r>=mp['S'])
+        {
+            res+=mp['S'];
+            exb+=r-mp['S'];
+        }
+        else if(r<mp['S'])
+        {
+            res+=r;
+        }
+
+        if(s>=mp['P'])
+        {
+            res+=mp['P'];
+            exc+=s-mp['P'];
+        }
+        else if(s<mp['P'])
+        {
+            res+=s;
+        }
+       // cout<<"res : "<<res<<endl;
+        int x = (n/2);
+        if(n%2) x++;
+        if(res>=x)
+        {
+            cout<<"YES\n";
+
+            for(int i=0; i<ss.size(); i++)
+            {
+                if(ss[i]=='R')
+                {
+                    if(p>0) cout<<'P';
+                    else
+                    {
+                        if(exa>0)
+                        {
+                            cout<<'P';
+                            exa--;
+                        }
+                        else if(exb>0)
+                        {
+                            cout<<'R';
+                            exb--;
+                        }
+                        else if(exc>0)
+                        {
+                            cout<<'S';
+                            exc--;
+                        }
+                    }
+                    p--;
+                }
+                if(ss[i]=='P')
+                {
+                    if(s>0) cout<<'S';
+                    else
+                    {
+                        if(exa>0)
+                        {
+                            cout<<'P';
+                            exa--;
+                        }
+                        else if(exb>0)
+                        {
+                            cout<<'R';
+                            exb--;
+                        }
+                        else if(exc>0)
+                        {
+                            cout<<'S';
+                          exc--;
+                        }
+                    }
+                    s--;
+                }
+                if(ss[i]=='S')
+                {
+                    if(r>0) cout<<'R';
+                    else
+                    {
+                        if(exa>0)
+                        {
+                            cout<<'P';
+                            exa--;
+                        }
+                        else if(exb>0)
+                        {
+                            cout<<'R';
+                            exb--;
+                        }
+                        else if(exc>0)
+                        {
+                            cout<<'S';
+                            exc--;
+                        }
+                    }
+                    r--;
+                }
+            }
+            cout<<endl;
+        }
+        else cout<<"NO\n";
+    }
+
+}
+
+

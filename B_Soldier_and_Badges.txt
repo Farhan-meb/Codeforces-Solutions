@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int main()
+{
+    int n;
+    cin>>n;
+
+    int N[n+10];
+
+    map<ll,ll>mp;
+    map<ll,bool>mpp;
+
+    for(int i=0;i<n;i++)
+    {
+        cin>>N[i];
+        mp[N[i]]++;
+    }
+
+    sort(N,N+n);
+
+
+
+    ll c=0;
+
+    for(int i=0;i<n;i++)
+    {
+        if(mp[N[i]]>1 and mpp[N[i]]==1)
+        {
+            //cout<<i+1<<endl;
+            mp[N[i]]--;
+            while(true)
+            {
+                N[i]++;
+                c++;
+                if(mp[N[i]]==0)
+                {
+                    mp[N[i]]=1;
+                    break;
+                }
+            }
+            mp[N[i]]++;
+        }
+        mpp[N[i]]=1;
+    }
+//    for(int i=0;i<n;i++) cout<<N[i]<<" ";
+//    cout<<endl;
+    cout<<c<<endl;
+}

@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int main()
+{
+    int n;
+    cin>>n;
+    int lim = n/2 +1;
+
+    cout<<lim<<endl;
+
+    int lim1 = n-lim+1;
+
+    for(int i=1;i<lim;i++) cout<<i<<" "<<1<<endl;
+    for(int i=1;i<=lim1;i++) cout<<i<<" "<<lim<<endl;
+}

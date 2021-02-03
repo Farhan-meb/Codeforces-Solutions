@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+map<int,int>mp;
+
+struct my
+{
+    int id;
+    long long int st;
+    long long int time;
+};
+int cmp(my a,my b)
+{
+    return a.st<b.st;
+}
+queue<my>q;
+int main()
+{
+    int n,b;
+    scanf("%d%d",&n,&b);
+    my N[n+10];
+    for(int i=1; i<=n; i++)
+    {
+        scanf("%lld%lld",&N[i].st,&N[i].time);
+        N[i].id=i;
+    }
+    sort(N+1,N+n+1,cmp);
+    int i=2;
+    ll now=N[1].st+N[1].time;
+    ll ans[n+5];
+    ans[1]=now;
+    while(1)
+    {
+        if(i>n and q.size()==0)
+            break;
+        while(i<=n)
+        {
+            if(N[i].st>=now)
+                break;
+            if(q.size()>=b)
+                ans[N[i++].id]=-1;
+            else
+            {
+                q.push(N[i++]);
+            }
+        }
+        if(q.size()==0)
+        {
+            now=N[i].st+N[i].time;
+            ans[i]=now;
+            i++;
+            continue;
+        }
+        my temp=q.front();
+        q.pop();
+        now+=temp.time;
+        ans[temp.id]=now;
+    }
+    for(int i=1; i<=n; i++) cout<<ans[i]<<" ";
+    cout<<endl;
+
+
+}

@@ -1,0 +1,74 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ 
+ 
+ll N = 1e5+10;
+bool prime[100010];
+ 
+void SieveOfEratosthenes(int n)
+{
+ 
+ 
+    memset(prime, true, sizeof(prime));
+ 
+    for (int p=2; p*p<=n; p++)
+    {
+ 
+        if (prime[p] == true)
+        {
+ 
+            for (int i=p*p; i<=n; i += p)
+                prime[i] = false;
+        }
+    }
+ 
+ 
+ 
+}
+ 
+ 
+int main()
+{
+ 
+    int t;
+    cin>>t;
+    ll send = 1e5+10;
+    SieveOfEratosthenes(send);
+ 
+    while(t--)
+    {
+        prime[1] = 0;
+        int n;
+        cin>>n;
+ 
+        int sum = n-1;
+        ll ans;
+        for(int i=1;i<=send;i++){
+            ll ss = sum+i;
+            if(prime[ss]){
+                if(!prime[i]){
+                    ans = i;
+                    break;
+                }
+            }
+        }
+ 
+        ll ind = n;
+ 
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=n;j++){
+                if(j==ind){
+                    cout<<ans<<" ";
+                }
+                else cout<<1<<" ";
+            }
+            ind--;
+            cout<<endl;
+        }
+ 
+ 
+    }
+ 
+ 
+}

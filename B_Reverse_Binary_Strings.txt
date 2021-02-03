@@ -1,0 +1,9 @@
+//dont copy from room please
+
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+
+int main(){int t;cin>>t;string s;while(t--){ll n,a = 0, b = 0,oise = 0;cin>>n;cin>>s;for(int i=0; i<n; i++){if(i%2==0){if(s[i]=='1'){if(!oise){a++;oise =1;}else{continue;}}else{oise = 0;}}else{if(s[i]=='0'){if(!oise){a++;oise =1;}}else{oise = 0;}}}oise=0;for(int i=0; i<n; i++){if(i%2==0){if(s[i]=='0'){if(!oise){b++;oise =1;}}else{oise = 0;}}else{if(s[i]=='1'){if(!oise){b++;oise =1;}else{continue;}}else{oise = 0;}}}cout<<min(a,b)<<endl;}}

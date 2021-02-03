@@ -1,0 +1,35 @@
+//------Farhaan Mahbub-------
+
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+
+int main()
+{
+
+    int t;
+    cin>>t;
+
+    while(t--)
+    {
+
+        int n,m;cin>>n>>m;int N[n+10][m+10];int reserver[n+10][m+10];
+        for(int i=0;i<n;i++){for(int j=0;j<m;j++) {cin>>N[i][j];reserver[i][j]=0;}}reserver[0][0] = reserver[0][m-1] = reserver[n-1][m-1] = reserver[n-1][0] = 2;
+
+        for(int i=1;i<m-1;i++) reserver[0][i]=3;for(int i=1;i<m-1;i++) reserver[n-1][i]=3;for(int i=1;i<n-1;i++) reserver[i][0]=3;for(int i=1;i<n-1;i++) reserver[i][m-1]=3;
+
+        for(int i=0;i<n;i++){for(int j=0;j<m;j++) {if(!reserver[i][j]){reserver[i][j]=4;}}}
+        bool dd=0;
+        for(int i=0;i<n;i++){for(int j=0;j<m;j++){if(N[i][j]>reserver[i][j]){dd=1;break;}}if(dd) break;
+        }
+        if(dd){cout<<"NO\n";
+        }
+        else{
+            cout<<"YES\n";for(int i=0;i<n;i++){for(int j=0;j<m;j++) {cout<<reserver[i][j]<<" ";}cout<<endl;}}
+
+    }
+
+
+}

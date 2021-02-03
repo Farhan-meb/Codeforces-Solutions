@@ -1,0 +1,103 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+#define pe(a) cout<<a<<endl;
+#define ps(a) cout<<a<<" ";
+#define pb push_back
+
+
+
+
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+
+    char N[n+5][m+5];
+
+    for(int i=1; i<=n; i++)
+    {
+        for(int j=1; j<=m; j++)
+            cin>>N[i][j];
+    }
+    bool f=0;
+    int x = -1,y = -1;
+    for(int i=1; i<=n; i++)
+    {
+        for(int j=1; j<=m; j++)
+        {
+            if(N[i][j]=='*' and N[i][j+1]=='*' and N[i][j-1]=='*' and N[i-1][j]=='*' and N[i+1][j]=='*')
+            {
+                x = i;
+                y = j;
+                f=1;
+
+                for(int x=j; x<=m; x++)
+                {
+                    if(N[i][x]=='*')
+                    {
+                        N[i][x]='a';
+                    }
+                    else break;
+
+                }
+
+                for(int x=j-1; x>=1; x--)
+                {
+                    if(N[i][x]=='*')
+                        N[i][x]='a';
+                    else
+                        break;
+                }
+
+                for(int x=i+1; x<=n; x++)
+                {
+                    if(N[x][j]=='*')
+                        N[x][j]='a';
+                    else
+                        break;
+                }
+
+                for(int x=i-1; x>=1; x--)
+                {
+                    if(N[x][j]=='*')
+                        N[x][j]='a';
+                    else
+                        break;
+                }
+
+
+                break;
+
+            }
+        }
+        if(f)
+            break;
+    }
+
+
+    if(f==0)
+    {
+        cout<<"NO\n";
+        return 0;
+    }
+    f=0;
+    for(int i=1; i<=n; i++)
+    {
+        for(int j=1; j<=m; j++)
+        {
+            if(N[i][j]=='*')
+            {
+                cout<<"NO\n";
+                f=1;
+                return 0;
+            }
+        }
+        if(f)
+            break;
+    }
+
+    cout<<"YES\n";
+}

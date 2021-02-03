@@ -1,0 +1,27 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+#define mem(ara, val) memset(ara, val, sizeof ara);
+#define pb push_back;
+
+
+int main()
+{
+    ll n;
+    cin>>n;
+
+    ll x=0,y=0;
+
+    ll t=n*2;
+    while(t--)
+    {
+        ll xx,yy;
+        cin>>xx>>yy;
+        x+=xx;y+=yy;
+    }
+
+    cout<<x/n<<" "<<y/n<<endl;
+}

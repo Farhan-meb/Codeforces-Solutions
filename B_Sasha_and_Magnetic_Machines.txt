@@ -1,0 +1,72 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int main()
+{
+    int n;
+    cin>>n;
+
+    int N[(5*n)+100];
+    ll sum=0,totsum=0;
+    for(int i=0; i<n; i++)
+    {
+        cin>>N[i];
+        totsum+=N[i];
+        sum+=N[i];
+    }
+
+    sort(N,N+n);
+
+    int agermin = 0, agernum = 0,agerx=0;
+    for(int i=n-1; i>=1; i--)
+    {
+        ll temp = N[i];
+        int minn = N[i];
+        ll dif = N[i] - N[0] ;
+        int agersum = N[i]+N[0];
+        for(int j=1; j<=temp/2; j++)
+        {
+            if(temp % j == 0)
+            {
+                int tt,ttt;
+                tt = temp/j;
+                ttt = temp/tt;
+                int okonorsum = (N[i]/tt) + (N[0]*(N[i]/ttt));
+                //cout<<"suj : "<<j<<" "<<okonorsum<<endl;
+                if(okonorsum < agersum)
+                {
+                    //cout<<"ok "<<tt<<" "<<ttt<<" "<<okonorsum<<endl;
+                    minn = max(tt,ttt);
+                    agersum = okonorsum;
+                    dif = abs(tt-ttt);
+                }
+            }
+        }
+        //cout<<minn<<endl;
+        ll x = N[i]/minn;
+        ll tsum = totsum;
+
+        tsum-=(N[i]);
+        tsum+=minn;
+        tsum-=N[0];
+        tsum+=(x*N[0]);
+
+        //tsum+=N[0];
+        //cout<<minn<<endl;
+        if(tsum<sum)
+        {
+            //sum+=N[0];
+            sum = tsum;
+            //agermin = minn;
+            //agernum = N[i];
+            //agerx = x;
+        }
+
+    }
+
+    cout<<sum<<endl;
+
+}
+

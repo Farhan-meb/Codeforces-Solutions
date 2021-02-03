@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int Prod(int x)
+{
+    int prod = 1;
+    while (x) {
+        prod *= (x % 10);
+        x /= 10;
+    }
+    return prod;
+}
+
+int getNumber(int l, int r)
+{
+
+    string a = to_string(l);
+    string b = to_string(r);
+
+
+    int res = r;
+    for (int i = 0; i < b.size(); i++) {
+        if (b[i] == '0')
+            continue;
+
+        string temp = b;
+        temp[i] = ((temp[i] - '0') - 1) + '0';
+
+        for (int j = i + 1; j < temp.size(); j++)
+            temp[j] = '9';
+        int nu = 0;
+        for (auto c : temp)
+            nu = nu * 10 + (c - '0');
+
+        if (nu >= l && Prod(res) < Prod(nu))
+            res = nu;
+    }
+
+    return res;
+}
+
+int main()
+{
+    long long n;
+    cin>>n;
+
+    long long res = getNumber(1, n);
+
+    long long ans = 1;
+
+    while(res>0)
+    {
+        ans*=(res%10);
+        res/=10;
+    }
+    cout<<ans<<endl;
+
+
+
+    return 0;
+}

@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int main()
+{
+    ll n;
+    cin>>n;
+
+    int num;
+    num=1;
+
+    while(true)
+    {
+        if(n<=(num*num))
+        {
+            //cout<<num*num<<" "<<n<<endl;
+            break;
+        }
+        num++;
+    }
+
+    for(int i=1;;i++)
+    {
+        if(n<=(num*i))
+        {
+            cout<<num+i<<endl;
+            return 0;
+        }
+    }
+}
+

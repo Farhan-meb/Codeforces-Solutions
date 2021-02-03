@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int main()
+{
+    int n;
+    cin>>n;
+
+    int N[n+10];
+    ll odsum=0,evsum=0;
+    for(int i=1;i<=n;i++)
+    {
+        cin>>N[i];
+        if(i%2) odsum+=N[i];
+        else evsum+=N[i];
+    }
+    ll okonOdsum=0;
+    ll okonEvsum=0;
+    ll res=0;
+    for(int i=1;i<=n;i++)
+    {
+        if(i%2) okonOdsum+=N[i];
+        else okonEvsum+=N[i];
+        ll newOdsum = (odsum-(okonOdsum))+okonEvsum;
+        ll newEvsum = (evsum - okonEvsum)+okonOdsum;
+        if(i%2) newEvsum-=N[i];
+        else newOdsum-=N[i];
+        //cout<<newOdsum<<" "<<newEvsum<<endl;
+        if(newOdsum==newEvsum)
+        {
+            res++;
+        }
+
+    }
+    cout<<res<<endl;
+
+}
+

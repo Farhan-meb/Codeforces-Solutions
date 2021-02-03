@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int main()
+{
+    int t;
+    scanf("%d",&t);
+
+    while(t--)
+    {
+        double a,b;
+        cin>>a>>b;
+
+        a = (a+b) * (a-b);
+        bool f=0;
+        for(int i=2;i<=sqrt(a);i++)
+        {
+
+            if(floor(a/i)*i == a)
+            {
+                f=1;
+                break;
+            }
+        }
+        if(f) printf("NO\n");
+        else printf("YES\n");
+    }
+
+}

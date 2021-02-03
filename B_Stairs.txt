@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+
+int main()
+{
+
+    int t;
+    cin>>t;
+
+    while(t--)
+    {
+
+        ll hh;
+        cin>>hh;
+        ll gg = 1;
+        ll tot = 1;
+        ll asi = 1;
+        while(gg<=hh)
+        {
+            ll kkk = asi+(asi+1);
+            kkk = (kkk*(kkk+1))/2;
+            gg+=kkk;
+            if(gg>hh) break;
+            tot++;
+            asi+=(asi+1);
+        }
+
+        cout<<tot<<endl;
+
+    }
+
+
+}

@@ -1,0 +1,44 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+
+int main()
+{
+    int t;
+    cin>>t;
+
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        string s;
+        cin>>s;
+        s = "#"+s;
+        int las1 = 0;
+
+        for(int i=1;i<=n;i++) {
+            if(s[i]=='1') las1=i;
+        }
+        int las2 = n;
+
+        //reverse(s.begin(),s.end());
+
+        for(int i=n;i>=1;i--){
+            if(s[i]=='1') las2=i;
+        }
+        if(las1==0){
+            cout<<n<<endl;
+            continue;
+        }
+        //cout<<las1<<" "<<las2<<endl;
+        ll sum1 = las1 + max(n-las1,las1);
+        ll sum2 = (n-las2+1)+  max(n-las2+1,las2);
+
+        cout<<max(sum1,sum2)<<endl;
+    }
+
+}
+
+
