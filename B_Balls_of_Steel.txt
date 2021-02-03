@@ -1,0 +1,3 @@
+
+#include <bits/stdc++.h>
+using namespace std;typedef long long ll;struct xx{int a,b;};int main(){int t;cin>>t;while(t--){ll n,k;cin>>n>>k;ll res = -1;xx ar[n+10];for(int i=1;i<=n;i++){cin>>ar[i].a>>ar[i].b;}for(int i=1;i<=n;i++){bool no = 0;for(int j=1;j<=n;j++){ll dist = abs(ar[i].a-ar[j].a)+abs(ar[i].b-ar[j].b);if(dist>k){no=1;break;}}if(!no) res = 1;}cout<<res<<endl;}}

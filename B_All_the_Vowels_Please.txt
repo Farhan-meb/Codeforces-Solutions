@@ -1,0 +1,77 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int main()
+{
+    int n;
+    cin>>n;
+
+    int sq = sqrt(n);
+
+    if(sq*sq != n) sq++;
+
+    if(sq<5)
+    {
+        cout<<-1<<endl;
+        return 0;
+    }
+
+
+    bool f=0;
+    int row=0,col=0;
+    for(int i=5;i<=sq;i++)
+    {
+        for(int j=5;j<=10000;j++)
+        {
+            if(i*j == n)
+            {
+                col = i;
+                row = j;
+                f=1;
+                break;
+            }
+        }
+        if(f) break;
+    }
+    if(!f)
+    {
+        cout<<-1<<endl;
+        return 0;
+    }
+
+    char s[col+10][row+10];
+
+    s[0][0]='a';s[0][1]='e';s[0][2]='i';s[0][3]='o';s[0][4]='u';
+    s[1][0]='e';s[1][1]='i';s[1][2]='o';s[1][3]='u';s[1][4]='a';
+    s[2][0]='i';s[2][1]='o';s[2][2]='u';s[2][3]='a';s[2][4]='e';
+    s[3][0]='o';s[3][1]='u';s[3][2]='a';s[3][3]='e';s[3][4]='i';
+    s[4][0]='u';s[4][1]='a';s[4][2]='e';s[4][3]='i';s[4][4]='o';
+
+    for(int i=5;i<col;i++)
+    {
+        int pos=i-5;
+
+        for(int j=0;j<5;j++)
+        {
+            s[i][j] = s[i-5][j];
+        }
+    }
+
+    for(int i=0;i<col;i++)
+    {
+        for(int j=5;j<row;j++)
+        {
+            s[i][j] = s[i][j-5];
+        }
+    }
+
+    for(int i=0;i<col;i++)
+    {
+        for(int j=0;j<row;j++) cout<<s[i][j];
+        //cout<<endl;
+    }
+
+}
+

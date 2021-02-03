@@ -1,0 +1,26 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+
+
+int main()
+{
+
+        int n,m,x,y;cin>>n>>m>>x>>y;cout<<x<<" "<<y<<endl;
+        for(int i=1;i<x;i++) cout<<i<<" "<<y<<endl;for(int i=x+1;i<=n;i++) cout<<i<<" "<<y<<endl;int hatho = n;
+
+        for(int i=1;i<y;i++){int asi;if(hatho==n) asi = -1;else asi = 1;for(int j=1;j<n;j++){cout<<hatho<<" "<<i<<endl;hatho+=asi;}cout<<hatho<<" "<<i<<endl;
+        }
+
+        for(int i=y+1;i<=m;i++){
+            int asi;if(hatho==n) asi = -1;else asi = 1;for(int j=1;j<n;j++){cout<<hatho<<" "<<i<<endl;hatho+=asi;}cout<<hatho<<" "<<i<<endl;
+        }
+
+
+
+
+
+
+}

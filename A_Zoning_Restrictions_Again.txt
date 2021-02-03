@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+#define pb push_back
+#define co(a) cout<<a<<endl;
+
+int N[50010];
+int main()
+{
+    int n,m,h;
+    cin>>n>>m>>h;
+
+
+    for(int i=1;i<=n;i++) N[i]=m;
+
+
+    for(int i=1;i<=h;i++)
+    {
+        int l,r,x;
+        cin>>l>>r>>x;
+
+        for(int j=l;j<=r;j++)
+        {
+            if(x<N[j])
+            {
+                N[j] = x;
+            }
+        }
+
+    }
+    ll s=0;
+
+    for(int i=1;i<=n;i++)
+    {
+        //cout<<N[i]<<" ";
+        s+=(N[i]*N[i]);
+    }
+    co(s);
+}

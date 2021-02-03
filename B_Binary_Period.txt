@@ -1,0 +1,93 @@
+//------Farhaan Mahbub-------|
+
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+#define colls(a) printf("%lld ",a);
+#define colln(a) printf("%lld\n",a);
+#define cois(a) printf("%d ",a);
+#define coin(a) printf("%d\n",a);
+#define cods(a) printf("%.6f ",a);
+#define codn(a) printf("%.6f\n",a);
+#define cocs(a) printf("%c ",a);
+#define cocn(a) printf("%c\n",a);
+#define coss(a) printf("%s ",a);
+#define cosn(a) printf("%s\n",a);
+
+#define scll(a) scanf("%lld",&a);
+#define sci(a) scanf("%d",&a);
+#define scd(a) scanf("%lf",&a);
+#define scc(a) scanf("%c", &a);
+#define scs(a) scanf("%s",a);
+
+#define ischar(x)    (('a' <= x && x <= 'z') || ('A' <= x && x <= 'Z'))
+#define isvowel(ch)  ((ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')||(ch=='A'|| ch=='E' || ch=='I'|| ch=='O'|| ch=='U'))
+#define mem(a,b)     memset(a,b,sizeof(a));
+#define memvec(a,b)  for(int i=0;i<a.size();i++){a[i]=b;}
+
+#define pb push_back
+#define pp pop_back
+#define eb echecklace_back
+#define in  freopen("input.txt", "r", stdin)
+#define out  freopen("output.txt", "w", stdout)
+#define check(s,a) cout<<s<<" : "<<a<<endl;
+
+int main()
+{
+    int t;
+    cin>>t;
+
+    while(t--)
+    {
+        string s;
+        cin>>s;
+
+        string ans = "";
+        int st = 1;
+        bool f=0;
+        for(int i=1;i<s.size();i++){
+            if(s[i]!=s[i-1]){
+                f=1;
+                break;
+            }
+        }
+
+        if(!f){
+            cout<<s<<endl;
+            continue;
+        }
+
+        ans+=s[0];
+
+        int n = s.size();
+        int ind = 0;
+        while(st<n){
+            char ase = ans[ind];
+            char okon = s[st];
+            if(ase!=okon){
+                ans+=s[st];
+                st++;
+                ind++;
+            }
+            else{
+                if(ase=='0'){
+                    ans+='1';
+                    ans+='0';
+                    ind+=2;
+                    st++;
+                }
+                else{
+                    ans+='0';
+                    ans+='1';
+                    ind+=2;
+                    st++;
+                }
+            }
+        }
+        cout<<ans<<endl;
+    }
+
+
+}

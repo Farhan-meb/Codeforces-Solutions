@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+
+
+int main()
+{
+    //cout<<1<<endl;
+
+    long long n;
+    cin>>n;
+
+    long long  N[100000+10];
+
+    for(int i=0;i<n;i++) cin>>N[i];
+
+    sort(N,N+n);
+
+    cout<<min(N[n-2]-N[0],N[n-1]-N[1])<<endl;
+}
+

@@ -1,0 +1,77 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+int main()
+{
+    string s;
+    cin>>s;
+
+    ll sum=0;
+    ll pos1=-1;
+    for(int i=0; i<s.size(); i++)
+    {
+        if(s[i]=='[')
+        {
+            pos1=i;
+            break;
+        }
+        else
+            sum++;
+    }
+    //cout<<sum<<endl;
+    ll pos2 = -1;
+
+    for(int i=s.size()-1; i>0; i--)
+    {
+        if(s[i]==']')
+        {
+            pos2 = i;
+            break;
+        }
+        else
+            sum++;
+    }
+    //cout<<sum<<endl;
+    if(pos1==-1 or pos2==-1)
+    {
+        cout<<-1<<endl;
+        return 0;
+
+    }
+    //cout<<pos1<<" "<<pos2<<endl;
+    int col1=-1,col2=-1;
+
+    for(int i=pos1+1; i<pos2; i++)
+    {
+        if(s[i]==':')
+        {
+            col1=i;
+            break;
+        }
+        else sum++;
+    }
+    //cout<<sum<<endl;
+    for(int i=pos2-1;i>col1;i--)
+    {
+        if(s[i]==':')
+        {
+            col2=i;
+            break;
+        }
+        else sum++;
+    }
+    //cout<<col1;
+    for(int i=col1+1;i<col2;i++)
+    {
+        if(s[i]=='|') continue;
+        else sum++;
+    }
+    //cout<<sum<<endl;
+    if(col1==-1 or col2==-1)
+        cout<<-1<<endl;
+    else
+        cout<<s.size()-sum<<endl;
+}
+

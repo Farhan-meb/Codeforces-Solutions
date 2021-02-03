@@ -1,0 +1,39 @@
+//------Farhaan Mahbub-------||
+
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll mod = 1e9 + 7;
+ll bigmod ( long long a, ll p, ll m )
+{
+    if ( p == 0 )return 1; // If power is 0 ( a ^ 0 ), return 1
+
+    if ( p & 1 ) // If power is odd
+    {
+        return ( ( a % m ) * ( bigmod ( a, p - 1, m ) ) ) % m;
+    }
+    else
+    {
+        long long tmp = bigmod ( a, p / 2, m );
+        return ( tmp * tmp ) % m;
+    }
+}
+
+int main()
+{
+    ll n,m;
+    cin>>n>>m;
+
+    ll po = bigmod(2,m,mod);
+    po--;
+
+
+
+
+
+    ll res = bigmod(po,n,mod);
+
+    cout<<res%mod<<endl;
+
+}

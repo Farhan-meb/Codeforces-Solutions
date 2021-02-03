@@ -1,0 +1,143 @@
+
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+
+
+struct MyStr
+{
+    ll l,r,siz;
+};
+
+bool acompare(MyStr lhs, MyStr rhs)
+{
+    return lhs.siz < rhs.siz;
+}
+
+int main()
+{
+
+    int t;
+    cin>>t;
+
+    while(t--)
+    {
+
+        ll n,k;
+        cin>>n>>k;
+
+        MyStr ar[n+10];
+
+        string s;
+        cin>>s;
+
+        bool w = 0;
+        ll c = 0,firstW = -1,lastW=-1,totWmid = 0;
+
+        for(int i=0; i<s.size(); i++)
+        {
+            if(s[i]=='W' and firstW==-1) firstW=i;
+            if(s[i]=='W') lastW = i;
+            if(s[i]=='W')
+            {
+                c = 0;
+                for(int j=i+1; j<n; j++)
+                {
+                    if(s[j]=='L') c++;
+                    else
+                    {
+                        if(c>0)
+                        {
+                            ar[totWmid].l = i+1;
+                            ar[totWmid].r = j-1;
+                            ar[totWmid].siz = c;
+                            totWmid++;
+                        }
+                        i=j-1;
+                        break;
+                    }
+                }
+            }
+        }
+
+        sort(ar, ar+totWmid, acompare);
+
+
+        c = 0;
+
+
+        for(int i=0; i<totWmid; i++)
+        {
+            int x = ar[i].l, y =ar[i].r;
+            bool f=0;
+            for(int j=x; j<=y; j++)
+            {
+                if(c>=k)
+                {
+                    f=1;
+                    break;
+                }
+                c++;
+                s[j]='W';
+            }
+            if(f) break;
+        }
+
+        ll ans = 0;
+
+        if(c<k and firstW!=-1)
+        {
+            for(int i=firstW-1; i>=0; i--)
+            {
+                s[i]='W';
+                c++;
+                if(c>=k) break;
+            }
+        }
+
+        if(c<k and lastW!=-1)
+        {
+            for(int i=lastW+1; i<n; i++)
+            {
+                s[i]='W';
+                c++;
+                if(c>=k) break;
+            }
+        }
+
+        if(c<k)
+        {
+            for(int i=0; i<s.size(); i++)
+            {
+                if(s[i]=='L')
+                {
+                    s[i]='W';
+                    c++;
+                }
+                if(c>=k) break;
+            }
+        }
+
+        for(int i=0; i<s.size(); i++)
+        {
+            if(s[i]=='W' and i==0) ans++;
+            else if(s[i]=='W')
+            {
+                if(s[i-1]=='W')
+                {
+                    ans+=2;
+                }
+                else ans++;
+            }
+        }
+
+        cout<<ans<<endl;
+
+
+    }
+
+
+}
+

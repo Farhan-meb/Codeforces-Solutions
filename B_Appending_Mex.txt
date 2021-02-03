@@ -1,0 +1,99 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+
+
+//loops--
+
+#define for0(i, n) for(int i=0; i<n; i++)
+#define for1(i, n) for(int i=1; i<=n; i++)
+#define fr(i,start, till) for(int i=start; i<=till; i++)
+#define frr(i,start, till) for(int i=start; i>=till; i--)
+
+//inputs--
+
+#define cin0(n, ara) for(int i=0; i<n; i++) {cin>>ara[i];}
+#define cini0(i, n, ara) for(int i=0; i<n; i++) {cin>>ara[i];}
+
+#define cin1(n, ara) for(int i=1; i<=n; i++) {cin>>ar[i];}
+#define cini1(i, n, ara) for(int i=1; i<=n; i++) {cin>>ar[i];}
+
+
+#define si(n) scanf("%d", &n);
+#define sii(n, m) scanf("%d %d", &n, &m);
+#define siii(n, m, k) scanf("%d %d %d", &n, &m, &k);
+#define siiii(n, m, k, o) scanf("%d %d %d %d", &n, &m, &k, &o);
+
+#define sl(n) scanf("%lld", &n);
+#define sll(n, m) scanf("%lld %lld", &n, &m);
+#define slll(n, m, k) scanf("%lld %lld %lld", &n, &m, &k);
+#define sllll(n, m, k, o) scanf("%lld %lld %lld %lld", &n, &m, &k, &o);
+
+//outputs--
+
+#define pr printf
+#define pri(n) printf("%d\n", n);
+#define prii(n, m) printf("%d %d\n", n, m);
+#define prl(n) printf("%lld\n", n);
+#define prll(n, m) printf("%lld %lld\n", n, m);
+#define prd(n) printf("%.10lf\n", n);
+#define prs(str) printf("%s\n", str);
+
+//others--
+
+#define mem(ara, val) memset(ara, val, sizeof ara);
+
+#define MX 100050
+#define double long double
+#define mod 100000007
+#define mod2 1000000009
+
+
+int main()
+{
+    //freopen("input.txt",r,stdin);
+    //freopen("output.txt",w,stdout);
+
+    int n;
+    cin>>n;
+
+    ll N[n+10];
+    map<int,bool>mp;
+    for(int i=1;i<=n;i++)
+    {
+        cin>>N[i];
+        //mp[N[i]]=1;
+    }
+
+    if(N[1]!=0)
+    {
+        cout<<1<<endl;
+        return 0;
+    }
+
+
+
+    //cout<<mx<<endl;
+    mp[0]=1;
+    for(int i=2;i<=n;i++)
+    {
+        if(N[i]!=N[i-1]+1)
+        {
+
+            if(mp[N[i]]==0 and mp[N[i]-1]==0)
+            {
+                cout<<i<<endl;
+                return 0;
+            }
+        }
+        mp[N[i]]=1;
+
+    }
+
+    cout<<-1<<endl;
+
+}
+
+
+
